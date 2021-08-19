@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+  <p id="txt"><%= dct %></p>
+  <center> <h1><%= name %> <%= message %></h1>
+   <form action="/logind/meet" method="post">
+  <br>
+  <h1 name="h">Doctors List</h1><br>
+  <select id="opts" name="opts">
+
+  </select><br><br>
+ <input type="" value="select the doctor">
+  <br><br>
+  <a href="<%= bod %>"> <%= linkm %> </a>
+  </center>
+<input type="submit" value="Meet">
+</form>
+</body>
+<script>
+  var per=document.getElementById("txt");
+  const changed=per.innerHTML;
+  const select=document.getElementById("opts");
+  per.style.display="none"
+  console.log(changed);
+  var words = changed.split(",");
+  console.log(words);
+  words.forEach((word)=>{
+    var opt = document.createElement('option');
+    opt.innerHTML =word;
+    opt.value=word.split(" ")[0];
+    select.appendChild(opt);
+  })
+  per.innerHTML=changed.replaceAll(",", " ");
+</script>
+</html>
